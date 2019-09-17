@@ -1,3 +1,4 @@
+import sys
 import csv
 import codecs
 
@@ -9,16 +10,16 @@ def get_proper_strings(csv_file):
             strings.append(', '.join(row))
 
     for idx, s in enumerate(strings):
-        strings[idx] = s[:-5]
+        strings[idx] = s[1:-1]
     
     return strings
 
 
 if __name__ == "__main__":
 
-    strs = get_proper_strings("ghidra_string_exports(cw_demo).csv")
+    strs = get_proper_strings(sys.argv[1])
 
-    f = codecs.open("cw_strings.txt", "w+", "utf-8")
+    f = codecs.open(f"cw_demo/{sys.argv[1][:-4]}.txt", "w+", "utf-8")
     for s in strs:
         f.write(f"{s}\n")
     f.close()
