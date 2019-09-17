@@ -20,9 +20,8 @@ if __name__ == "__main__":
 
     import sys
 
-    f = codecs.open(f"{sys.argv[2]}_strings.txt", "w+", "utf-8")
     strings = get_string(sys.argv[1], sys.argv[2])
-
+    f = codecs.open(f"{sys.argv[2]}_strings.txt", "w+", "utf-8")
     for st in strings:
         f.write(f"{st}\n")
 
